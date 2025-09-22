@@ -1,12 +1,172 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Progress } from "@/components/ui/progress";
+import { 
+  Camera, 
+  Users, 
+  Clock, 
+  CheckCircle, 
+  XCircle, 
+  BarChart3,
+  ScanFace,
+  Monitor,
+  Smartphone,
+  Wifi
+} from "lucide-react";
+import { FaceIdScanner } from "@/components/FaceIdScanner";
+import { AttendanceStats } from "@/components/AttendanceStats";
+import { RealtimeDashboard } from "@/components/RealtimeDashboard";
+import { AttendanceReports } from "@/components/AttendanceReports";
 
 const Index = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [activeStudents, setActiveStudents] = useState(24);
+  const [totalStudents] = useState(32);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const attendanceRate = Math.round((activeStudents / totalStudents) * 100);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-hero">
+      {/* Header */}
+      <header className="border-b border-white/10 bg-white/5 backdrop-blur-md">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <ScanFace className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-white">Sistema Ryujin</h1>
+                <p className="text-sm text-white/70">Controle de Presença Inteligente</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center space-x-4">
+              <div className="text-right">
+                <p className="text-sm font-medium text-white">
+                  {currentTime.toLocaleTimeString('pt-BR')}
+                </p>
+                <p className="text-xs text-white/70">
+                  {currentTime.toLocaleDateString('pt-BR')}
+                </p>
+              </div>
+              <Badge variant="outline" className="border-white/20 text-white">
+                <Wifi className="w-3 h-3 mr-1" />
+                Online
+              </Badge>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-8">
+        <Tabs defaultValue="scanner" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-4 bg-white/10 border-white/20">
+            <TabsTrigger value="scanner" className="data-[state=active]:bg-white data-[state=active]:text-primary">
+              <Camera className="w-4 h-4 mr-2" />
+              Scanner
+            </TabsTrigger>
+            <TabsTrigger value="dashboard" className="data-[state=active]:bg-white data-[state=active]:text-primary">
+              <Monitor className="w-4 h-4 mr-2" />
+              Dashboard
+            </TabsTrigger>
+            <TabsTrigger value="stats" className="data-[state=active]:bg-white data-[state=active]:text-primary">
+              <BarChart3 className="w-4 h-4 mr-2" />
+              Estatísticas
+            </TabsTrigger>
+            <TabsTrigger value="reports" className="data-[state=active]:bg-white data-[state=active]:text-primary">
+              <Smartphone className="w-4 h-4 mr-2" />
+              Relatórios
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Quick Stats Bar */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-2">
+                  <Users className="w-5 h-5 text-white" />
+                  <div>
+                    <p className="text-sm font-medium text-white/90">Presentes</p>
+                    <p className="text-2xl font-bold text-white">{activeStudents}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-2">
+                  <Clock className="w-5 h-5 text-white" />
+                  <div>
+                    <p className="text-sm font-medium text-white/90">Taxa de Presença</p>
+                    <p className="text-2xl font-bold text-white">{attendanceRate}%</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-5 h-5 text-success" />
+                  <div>
+                    <p className="text-sm font-medium text-white/90">Aula Ativa</p>
+                    <p className="text-lg font-bold text-success">Sistema Web</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-2">
+                  <BarChart3 className="w-5 h-5 text-white" />
+                  <div>
+                    <p className="text-sm font-medium text-white/90">Carga Horária</p>
+                    <div className="flex items-center space-x-2">
+                      <Progress value={75} className="w-16 h-2" />
+                      <span className="text-sm font-medium text-white">75%</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Tab Contents */}
+          <TabsContent value="scanner" className="space-y-6">
+            <FaceIdScanner onStudentDetected={setActiveStudents} />
+          </TabsContent>
+
+          <TabsContent value="dashboard" className="space-y-6">
+            <RealtimeDashboard 
+              activeStudents={activeStudents} 
+              totalStudents={totalStudents}
+            />
+          </TabsContent>
+
+          <TabsContent value="stats" className="space-y-6">
+            <AttendanceStats />
+          </TabsContent>
+
+          <TabsContent value="reports" className="space-y-6">
+            <AttendanceReports />
+          </TabsContent>
+        </Tabs>
+      </main>
     </div>
   );
 };
