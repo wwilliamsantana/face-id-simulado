@@ -5,9 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { 
-  FileText, 
-  Download, 
+import {
+  FileText,
+  Download,
   Calendar,
   Filter,
   Users,
@@ -33,7 +33,7 @@ export const AttendanceReports = () => {
       data: "Inclui estatísticas gerais, gráficos e listas de presença"
     },
     {
-      id: "individual_report", 
+      id: "individual_report",
       title: "Relatório Individual",
       description: "Detalhamento por aluno específico",
       icon: FileText,
@@ -72,7 +72,7 @@ export const AttendanceReports = () => {
       title: "Analytics Turma 1TDSPB",
       type: "Analytics",
       generated: "2024-09-19",
-      size: "1.8 MB", 
+      size: "1.8 MB",
       status: "Concluído"
     },
     {
@@ -87,10 +87,10 @@ export const AttendanceReports = () => {
 
   const handleGenerateReport = async (reportType: string, format: string) => {
     setIsGenerating(true);
-    
+
     // Simulate report generation
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
     setIsGenerating(false);
     toast.success(`Relatório gerado com sucesso!`, {
       description: `Arquivo ${format} pronto para download`,
@@ -108,22 +108,22 @@ export const AttendanceReports = () => {
   return (
     <div className="space-y-6">
       {/* Report Filters */}
-      <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="flex items-center space-x-2 text-white">
+          <CardTitle className="flex items-center space-x-2 text-black/80">
             <Filter className="w-5 h-5" />
             <span>Filtros de Relatório</span>
           </CardTitle>
-          <CardDescription className="text-white/70">
+          <CardDescription className="text-black/80/70">
             Configure os parâmetros para geração de relatórios personalizados
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="period" className="text-white">Período</Label>
+              <Label htmlFor="period" className="text-black/80">Período</Label>
               <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
-                <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                <SelectTrigger className="bg-zinc-200 border-white/20 text-black/80">
                   <SelectValue placeholder="Selecionar período" />
                 </SelectTrigger>
                 <SelectContent>
@@ -137,9 +137,9 @@ export const AttendanceReports = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="class" className="text-white">Turma</Label>
+              <Label htmlFor="class" className="text-black/80">Turma</Label>
               <Select value={selectedClass} onValueChange={setSelectedClass}>
-                <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                <SelectTrigger className="bg-zinc-200 border-white/20 text-black/80">
                   <SelectValue placeholder="Selecionar turma" />
                 </SelectTrigger>
                 <SelectContent>
@@ -152,10 +152,10 @@ export const AttendanceReports = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="date-range" className="text-white">Data Específica</Label>
-              <Input 
-                type="date" 
-                className="bg-white/10 border-white/20 text-white"
+              <Label htmlFor="date-range" className="text-black/80">Data Específica</Label>
+              <Input
+                type="date"
+                className="bg-zinc-200 border-white/20 text-black/80"
                 placeholder="Data inicial"
               />
             </div>
@@ -166,22 +166,22 @@ export const AttendanceReports = () => {
       {/* Report Types */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {reportTypes.map((report) => (
-          <Card key={report.id} className="bg-white/10 border-white/20 backdrop-blur-sm">
+          <Card key={report.id} className="bg-zinc-200 border-white/20 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="flex items-center space-x-2 text-white">
+              <CardTitle className="flex items-center space-x-2 text-black/80">
                 <report.icon className="w-5 h-5" />
                 <span>{report.title}</span>
               </CardTitle>
-              <CardDescription className="text-white/70">
+              <CardDescription className="text-black/80/70">
                 {report.description}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-sm text-white/80">{report.data}</p>
-              
+              <p className="text-sm text-black/80/80">{report.data}</p>
+
               <div className="flex flex-wrap gap-2">
                 {report.format.map((format) => (
-                  <Badge key={format} variant="outline" className="border-white/20 text-white">
+                  <Badge key={format} variant="outline" className="border-white/20 text-black/80">
                     {format}
                   </Badge>
                 ))}
@@ -195,7 +195,7 @@ export const AttendanceReports = () => {
                     disabled={isGenerating}
                     variant="outline"
                     size="sm"
-                    className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    className="bg-zinc-200 border-white/20 text-black/80 hover:bg-white/20"
                   >
                     {isGenerating ? (
                       <>
@@ -217,13 +217,13 @@ export const AttendanceReports = () => {
       </div>
 
       {/* Recent Reports */}
-      <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="flex items-center space-x-2 text-white">
+          <CardTitle className="flex items-center space-x-2 text-black/80">
             <FileText className="w-5 h-5" />
             <span>Relatórios Recentes</span>
           </CardTitle>
-          <CardDescription className="text-white/70">
+          <CardDescription className="text-black/80/70">
             Histórico dos últimos relatórios gerados
           </CardDescription>
         </CardHeader>
@@ -232,10 +232,10 @@ export const AttendanceReports = () => {
             {recentReports.map((report) => (
               <div key={report.id} className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-lg">
                 <div className="flex items-center space-x-3">
-                  <FileText className="w-5 h-5 text-white/70" />
+                  <FileText className="w-5 h-5 text-black/80/70" />
                   <div>
-                    <p className="font-medium text-white">{report.title}</p>
-                    <div className="flex items-center space-x-4 text-sm text-white/70">
+                    <p className="font-medium text-black/80">{report.title}</p>
+                    <div className="flex items-center space-x-4 text-sm text-black/80/70">
                       <span>{report.type}</span>
                       <span>•</span>
                       <div className="flex items-center space-x-1">
@@ -247,7 +247,7 @@ export const AttendanceReports = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-2">
                   <Badge variant="outline" className="border-success text-success">
                     {report.status}
@@ -256,7 +256,7 @@ export const AttendanceReports = () => {
                     onClick={() => handleDownloadReport(report.id)}
                     variant="outline"
                     size="sm"
-                    className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    className="bg-zinc-200 border-white/20 text-black/80 hover:bg-white/20"
                   >
                     <Download className="w-3 h-3 mr-2" />
                     Download
@@ -264,7 +264,7 @@ export const AttendanceReports = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    className="bg-zinc-200 border-white/20 text-black/80 hover:bg-white/20"
                   >
                     <Share2 className="w-3 h-3 mr-2" />
                     Compartilhar
@@ -276,22 +276,22 @@ export const AttendanceReports = () => {
 
           {recentReports.length === 0 && (
             <div className="text-center py-8">
-              <FileText className="w-12 h-12 text-white/30 mx-auto mb-4" />
-              <p className="text-white/70">Nenhum relatório encontrado</p>
-              <p className="text-sm text-white/50">Gere seu primeiro relatório usando as opções acima</p>
+              <FileText className="w-12 h-12 text-black/80/30 mx-auto mb-4" />
+              <p className="text-black/80/70">Nenhum relatório encontrado</p>
+              <p className="text-sm text-black/80/50">Gere seu primeiro relatório usando as opções acima</p>
             </div>
           )}
         </CardContent>
       </Card>
 
       {/* Automated Reports */}
-      <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="flex items-center space-x-2 text-white">
+          <CardTitle className="flex items-center space-x-2 text-black/80">
             <Mail className="w-5 h-5" />
             <span>Relatórios Automáticos</span>
           </CardTitle>
-          <CardDescription className="text-white/70">
+          <CardDescription className="text-black/80/70">
             Configure envios automáticos para coordenação e gestão
           </CardDescription>
         </CardHeader>
@@ -300,18 +300,18 @@ export const AttendanceReports = () => {
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg">
                 <div>
-                  <p className="font-medium text-white">Relatório Semanal</p>
-                  <p className="text-sm text-white/70">Toda segunda às 08:00</p>
+                  <p className="font-medium text-black/80">Relatório Semanal</p>
+                  <p className="text-sm text-black/80/70">Toda segunda às 08:00</p>
                 </div>
                 <Badge variant="outline" className="border-success text-success">
                   Ativo
                 </Badge>
               </div>
-              
+
               <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg">
                 <div>
-                  <p className="font-medium text-white">Relatório Mensal</p>
-                  <p className="text-sm text-white/70">Todo dia 1º às 09:00</p>
+                  <p className="font-medium text-black/80">Relatório Mensal</p>
+                  <p className="text-sm text-black/80/70">Todo dia 1º às 09:00</p>
                 </div>
                 <Badge variant="outline" className="border-success text-success">
                   Ativo
@@ -322,18 +322,18 @@ export const AttendanceReports = () => {
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg">
                 <div>
-                  <p className="font-medium text-white">Alertas de Frequência</p>
-                  <p className="text-sm text-white/70">Quando menor que 75%</p>
+                  <p className="font-medium text-black/80">Alertas de Frequência</p>
+                  <p className="text-sm text-black/80/70">Quando menor que 75%</p>
                 </div>
                 <Badge variant="outline" className="border-warning text-warning">
                   Pausado
                 </Badge>
               </div>
-              
+
               <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg">
                 <div>
-                  <p className="font-medium text-white">Relatório Semestral</p>
-                  <p className="text-sm text-white/70">A cada 6 meses</p>
+                  <p className="font-medium text-black/80">Relatório Semestral</p>
+                  <p className="text-sm text-black/80/70">A cada 6 meses</p>
                 </div>
                 <Badge variant="outline" className="border-success text-success">
                   Ativo
