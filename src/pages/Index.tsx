@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
@@ -14,7 +20,7 @@ import {
   ScanFace,
   Monitor,
   Smartphone,
-  Wifi
+  Wifi,
 } from "lucide-react";
 import { FaceIdScanner } from "@/components/FaceIdScanner";
 import { AttendanceStats } from "@/components/AttendanceStats";
@@ -47,21 +53,28 @@ const Index = () => {
                 <ScanFace className="w-6 h-6 text-white/80" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white/80">Sistema Ryujin</h1>
-                <p className="text-sm text-white/80">Controle de Presença Inteligente</p>
+                <h1 className="text-xl font-bold text-white/80">
+                  Sistema Ryujin
+                </h1>
+                <p className="text-sm text-white/80">
+                  Controle de Presença Inteligente
+                </p>
               </div>
             </div>
 
             <div className="flex items-center space-x-4">
               <div className="text-right">
                 <p className="text-sm font-medium text-white/80">
-                  {currentTime.toLocaleTimeString('pt-BR')}
+                  {currentTime.toLocaleTimeString("pt-BR")}
                 </p>
                 <p className="text-xs text-white/80">
-                  {currentTime.toLocaleDateString('pt-BR')}
+                  {currentTime.toLocaleDateString("pt-BR")}
                 </p>
               </div>
-              <Badge variant="outline" className="border-white/20 text-white/80">
+              <Badge
+                variant="outline"
+                className="border-white/20 text-white/80"
+              >
                 <Wifi className="w-3 h-3 mr-1" />
                 Online
               </Badge>
@@ -71,22 +84,34 @@ const Index = () => {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8 bg-zinc-300">
+      <main className="container mx-auto px-4 py-8">
         <Tabs defaultValue="scanner" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 bg-zinc-200 border-black/20">
-            <TabsTrigger value="scanner" className="data-[state=active]:bg-white data-[state=active]:text-primary">
+          <TabsList className="grid w-full grid-cols-4 border-black/20">
+            <TabsTrigger
+              value="scanner"
+              className="data-[state=active]:bg-white data-[state=active]:text-primary"
+            >
               <Camera className="w-4 h-4 mr-2" />
               Scanner
             </TabsTrigger>
-            <TabsTrigger value="dashboard" className="data-[state=active]:bg-white data-[state=active]:text-primary">
+            <TabsTrigger
+              value="dashboard"
+              className="data-[state=active]:bg-white data-[state=active]:text-primary"
+            >
               <Monitor className="w-4 h-4 mr-2" />
               Dashboard
             </TabsTrigger>
-            <TabsTrigger value="stats" className="data-[state=active]:bg-white data-[state=active]:text-primary">
+            <TabsTrigger
+              value="stats"
+              className="data-[state=active]:bg-white data-[state=active]:text-primary"
+            >
               <BarChart3 className="w-4 h-4 mr-2" />
               Estatísticas
             </TabsTrigger>
-            <TabsTrigger value="reports" className="data-[state=active]:bg-white data-[state=active]:text-primary">
+            <TabsTrigger
+              value="reports"
+              className="data-[state=active]:bg-white data-[state=active]:text-primary"
+            >
               <Smartphone className="w-4 h-4 mr-2" />
               Relatórios
             </TabsTrigger>
@@ -94,51 +119,67 @@ const Index = () => {
 
           {/* Quick Stats Bar */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+            <Card className="border-white/20 backdrop-blur-sm">
               <CardContent className="p-4">
                 <div className="flex items-center space-x-2">
                   <Users className="w-5 h-5 text-black/80" />
                   <div>
-                    <p className="text-sm font-medium text-black/80/90">Presentes</p>
-                    <p className="text-2xl font-bold text-black/80">{activeStudents}</p>
+                    <p className="text-sm font-medium text-black/80/90">
+                      Presentes
+                    </p>
+                    <p className="text-2xl font-bold text-black/80">
+                      {activeStudents}
+                    </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+            <Card className="border-white/20 backdrop-blur-sm">
               <CardContent className="p-4">
                 <div className="flex items-center space-x-2">
                   <Clock className="w-5 h-5 text-black/80" />
                   <div>
-                    <p className="text-sm font-medium text-black/80/90">Taxa de Presença</p>
-                    <p className="text-2xl font-bold text-black/80">{attendanceRate}%</p>
+                    <p className="text-sm font-medium text-black/80/90">
+                      Taxa de Presença
+                    </p>
+                    <p className="text-2xl font-bold text-black/80">
+                      {attendanceRate}%
+                    </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+            <Card className="border-white/20 backdrop-blur-sm">
               <CardContent className="p-4">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-success" />
                   <div>
-                    <p className="text-sm font-medium text-black/80/90">Aula Ativa</p>
-                    <p className="text-lg font-bold text-success">Sistema Web</p>
+                    <p className="text-sm font-medium text-black/80/90">
+                      Aula Ativa
+                    </p>
+                    <p className="text-lg font-bold text-success">
+                      Sistema Web
+                    </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+            <Card className="border-white/20 backdrop-blur-sm">
               <CardContent className="p-4">
                 <div className="flex items-center space-x-2">
                   <BarChart3 className="w-5 h-5 text-black/80" />
                   <div>
-                    <p className="text-sm font-medium text-black/80/90">Carga Horária</p>
+                    <p className="text-sm font-medium text-black/80/90">
+                      Carga Horária
+                    </p>
                     <div className="flex items-center space-x-2">
                       <Progress value={75} className="w-16 h-2" />
-                      <span className="text-sm font-medium text-black/80">75%</span>
+                      <span className="text-sm font-medium text-black/80">
+                        75%
+                      </span>
                     </div>
                   </div>
                 </div>
