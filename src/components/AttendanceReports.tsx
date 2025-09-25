@@ -108,7 +108,7 @@ export const AttendanceReports = () => {
   return (
     <div className="space-y-6">
       {/* Report Filters */}
-      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+      <Card className="border-white/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-black/80">
             <Filter className="w-5 h-5" />
@@ -123,7 +123,7 @@ export const AttendanceReports = () => {
             <div className="space-y-2">
               <Label htmlFor="period" className="text-black/80">Período</Label>
               <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
-                <SelectTrigger className="bg-zinc-200 border-white/20 text-black/80">
+                <SelectTrigger className="border-white/20 text-black/80">
                   <SelectValue placeholder="Selecionar período" />
                 </SelectTrigger>
                 <SelectContent>
@@ -139,7 +139,7 @@ export const AttendanceReports = () => {
             <div className="space-y-2">
               <Label htmlFor="class" className="text-black/80">Turma</Label>
               <Select value={selectedClass} onValueChange={setSelectedClass}>
-                <SelectTrigger className="bg-zinc-200 border-white/20 text-black/80">
+                <SelectTrigger className="border-white/20 text-black/80">
                   <SelectValue placeholder="Selecionar turma" />
                 </SelectTrigger>
                 <SelectContent>
@@ -155,7 +155,7 @@ export const AttendanceReports = () => {
               <Label htmlFor="date-range" className="text-black/80">Data Específica</Label>
               <Input
                 type="date"
-                className="bg-zinc-200 border-white/20 text-black/80"
+                className="border-white/20 text-black/80"
                 placeholder="Data inicial"
               />
             </div>
@@ -166,7 +166,7 @@ export const AttendanceReports = () => {
       {/* Report Types */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {reportTypes.map((report) => (
-          <Card key={report.id} className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+          <Card key={report.id} className="border-white/20 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2 text-black/80">
                 <report.icon className="w-5 h-5" />
@@ -195,7 +195,7 @@ export const AttendanceReports = () => {
                     disabled={isGenerating}
                     variant="outline"
                     size="sm"
-                    className="bg-zinc-200 border-white/20 text-black/80 hover:bg-white/20"
+                    className="border-white/20 text-black/80 hover:bg-white/20"
                   >
                     {isGenerating ? (
                       <>
@@ -217,7 +217,7 @@ export const AttendanceReports = () => {
       </div>
 
       {/* Recent Reports */}
-      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+      <Card className="border-white/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-black/80">
             <FileText className="w-5 h-5" />
@@ -256,7 +256,7 @@ export const AttendanceReports = () => {
                     onClick={() => handleDownloadReport(report.id)}
                     variant="outline"
                     size="sm"
-                    className="bg-zinc-200 border-white/20 text-black/80 hover:bg-white/20"
+                    className="border-white/20 text-black/80 hover:bg-white/20"
                   >
                     <Download className="w-3 h-3 mr-2" />
                     Download
@@ -264,7 +264,7 @@ export const AttendanceReports = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="bg-zinc-200 border-white/20 text-black/80 hover:bg-white/20"
+                    className="border-white/20 text-black/80 hover:bg-white/20"
                   >
                     <Share2 className="w-3 h-3 mr-2" />
                     Compartilhar
@@ -285,7 +285,7 @@ export const AttendanceReports = () => {
       </Card>
 
       {/* Automated Reports */}
-      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+      <Card className="border-white/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-black/80">
             <Mail className="w-5 h-5" />

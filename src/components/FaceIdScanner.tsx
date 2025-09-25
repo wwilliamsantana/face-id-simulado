@@ -87,7 +87,7 @@ export const FaceIdScanner = ({ onStudentDetected }: FaceIdScannerProps) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Scanner Interface */}
-      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+      <Card className="border-white/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-black/80">
             <ScanFace className="w-5 h-5" />
@@ -179,7 +179,7 @@ export const FaceIdScanner = ({ onStudentDetected }: FaceIdScannerProps) => {
       </Card>
 
       {/* Recent Attendance */}
-      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+      <Card className="border-white/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-black/80">
             <User className="w-5 h-5" />

@@ -1,4 +1,10 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import {
@@ -9,7 +15,7 @@ import {
   Users,
   Clock,
   Target,
-  Award
+  Award,
 } from "lucide-react";
 
 export const AttendanceStats = () => {
@@ -31,32 +37,43 @@ export const AttendanceStats = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "excellent": return "text-success";
-      case "good": return "text-primary";
-      case "warning": return "text-warning";
-      case "critical": return "text-destructive";
-      default: return "text-muted-foreground";
+      case "excellent":
+        return "text-success";
+      case "good":
+        return "text-primary";
+      case "warning":
+        return "text-warning";
+      case "critical":
+        return "text-destructive";
+      default:
+        return "text-muted-foreground";
     }
   };
 
   const getStatusBadge = (status: string) => {
     switch (status) {
-      case "excellent": return "Excelente";
-      case "good": return "Bom";
-      case "warning": return "Atenção";
-      case "critical": return "Crítico";
-      default: return "Regular";
+      case "excellent":
+        return "Excelente";
+      case "good":
+        return "Bom";
+      case "warning":
+        return "Atenção";
+      case "critical":
+        return "Crítico";
+      default:
+        return "Regular";
     }
   };
 
   const averageAttendance = Math.round(
-    weeklyStats.reduce((acc, day) => acc + day.attendance, 0) / weeklyStats.length
+    weeklyStats.reduce((acc, day) => acc + day.attendance, 0) /
+      weeklyStats.length,
   );
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Weekly Overview */}
-      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+      <Card className="border-white/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-black/80">
             <BarChart3 className="w-5 h-5" />
@@ -71,11 +88,16 @@ export const AttendanceStats = () => {
             {weeklyStats.map((day, index) => (
               <div key={day.day} className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-black/80">{day.day}</span>
+                  <span className="text-sm font-medium text-black/80">
+                    {day.day}
+                  </span>
                   <div className="flex items-center space-x-2">
-                    <span className="text-sm text-black/80/70">{day.attendance}%</span>
+                    <span className="text-sm text-black/80/70">
+                      {day.attendance}%
+                    </span>
                     <span className="text-xs text-black/80/50">
-                      ({Math.round((day.attendance / 100) * day.total)}/{day.total})
+                      ({Math.round((day.attendance / 100) * day.total)}/
+                      {day.total})
                     </span>
                   </div>
                 </div>
@@ -86,10 +108,14 @@ export const AttendanceStats = () => {
 
           <div className="pt-4 border-t border-white/10 space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-black/80/70">Média Semanal</span>
+              <span className="text-sm font-medium text-black/80/70">
+                Média Semanal
+              </span>
               <div className="flex items-center space-x-2">
                 <TrendingUp className="w-4 h-4 text-success" />
-                <span className="text-lg font-bold text-black/80">{averageAttendance}%</span>
+                <span className="text-lg font-bold text-black/80">
+                  {averageAttendance}%
+                </span>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4 text-center">
@@ -107,7 +133,7 @@ export const AttendanceStats = () => {
       </Card>
 
       {/* Performance by Student */}
-      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+      <Card className="border-white/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-black/80">
             <Users className="w-5 h-5" />
@@ -126,7 +152,9 @@ export const AttendanceStats = () => {
                     <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center text-black/80 font-bold text-sm">
                       {index + 1}
                     </div>
-                    <span className="font-medium text-black/80">{student.name}</span>
+                    <span className="font-medium text-black/80">
+                      {student.name}
+                    </span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Badge
@@ -135,12 +163,17 @@ export const AttendanceStats = () => {
                     >
                       {getStatusBadge(student.status)}
                     </Badge>
-                    <span className="text-sm font-medium text-black/80">{student.attendance}%</span>
+                    <span className="text-sm font-medium text-black/80">
+                      {student.attendance}%
+                    </span>
                   </div>
                 </div>
                 <Progress value={student.attendance} className="h-2" />
                 <div className="flex justify-between text-xs text-black/80/50">
-                  <span>{Math.round((student.attendance / 100) * student.classes)} aulas presentes</span>
+                  <span>
+                    {Math.round((student.attendance / 100) * student.classes)}{" "}
+                    aulas presentes
+                  </span>
                   <span>{student.classes} aulas totais</span>
                 </div>
               </div>
@@ -150,7 +183,7 @@ export const AttendanceStats = () => {
       </Card>
 
       {/* Monthly Summary */}
-      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+      <Card className="border-white/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-black/80">
             <Calendar className="w-5 h-5" />
@@ -188,23 +221,29 @@ export const AttendanceStats = () => {
               <span className="text-sm font-medium text-black/80">20/24</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-black/80/70">Taxa de Pontualidade</span>
+              <span className="text-sm text-black/80/70">
+                Taxa de Pontualidade
+              </span>
               <span className="text-sm font-medium text-black/80">92%</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-black/80/70">Melhor Dia</span>
-              <span className="text-sm font-medium text-black/80">Quarta-feira</span>
+              <span className="text-sm font-medium text-black/80">
+                Quarta-feira
+              </span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-black/80/70">Pior Dia</span>
-              <span className="text-sm font-medium text-black/80">Segunda-feira</span>
+              <span className="text-sm font-medium text-black/80">
+                Segunda-feira
+              </span>
             </div>
           </div>
         </CardContent>
       </Card>
 
       {/* Achievements */}
-      <Card className="bg-zinc-200 border-white/20 backdrop-blur-sm">
+      <Card className="border-white/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-black/80">
             <Award className="w-5 h-5" />
@@ -222,7 +261,9 @@ export const AttendanceStats = () => {
               </div>
               <div>
                 <p className="font-medium text-black/80">Meta Semestral</p>
-                <p className="text-sm text-black/80/70">85% de frequência atingida</p>
+                <p className="text-sm text-black/80/70">
+                  85% de frequência atingida
+                </p>
               </div>
             </div>
 
@@ -232,7 +273,9 @@ export const AttendanceStats = () => {
               </div>
               <div>
                 <p className="font-medium text-black/80">Melhoria Contínua</p>
-                <p className="text-sm text-black/80/70">3 semanas consecutivas acima da média</p>
+                <p className="text-sm text-black/80/70">
+                  3 semanas consecutivas acima da média
+                </p>
               </div>
             </div>
 
@@ -242,7 +285,9 @@ export const AttendanceStats = () => {
               </div>
               <div>
                 <p className="font-medium text-black/80">Participação</p>
-                <p className="text-sm text-black/80/70">100% dos alunos com pelo menos 1 presença</p>
+                <p className="text-sm text-black/80/70">
+                  100% dos alunos com pelo menos 1 presença
+                </p>
               </div>
             </div>
           </div>
@@ -251,3 +296,4 @@ export const AttendanceStats = () => {
     </div>
   );
 };
+
