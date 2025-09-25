@@ -7,7 +7,7 @@ All colors MUST be HSL.
 */
 
 @layer base {
-:root {
+  :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -48,7 +48,9 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
     --gradient-hero: linear-gradient(135deg, hsl(224 71% 58%), hsl(236 72% 79%));
-    
+    --gradient-header: linear-gradient(135deg, hsl(224 57% 46%), hsl(236 58% 63%));
+
+
     /* Elegant shadows */
     --shadow-sm: 0 2px 8px -2px hsl(var(--primary) / 0.1);
     --shadow-md: 0 8px 25px -8px hsl(var(--primary) / 0.2);
@@ -78,7 +80,7 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-.dark {
+  .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -118,7 +120,7 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
     --gradient-hero: linear-gradient(135deg, hsl(224 71% 68%), hsl(236 72% 60%));
-    
+
     /* Dark mode shadows */
     --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
     --shadow-md: 0 8px 25px -8px hsl(0 0% 0% / 0.4);

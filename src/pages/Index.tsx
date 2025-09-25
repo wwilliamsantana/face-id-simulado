@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -15,7 +11,6 @@ import {
   Users,
   Clock,
   CheckCircle,
-  XCircle,
   BarChart3,
   ScanFace,
   Monitor,
@@ -43,9 +38,9 @@ const Index = () => {
   const attendanceRate = Math.round((activeStudents / totalStudents) * 100);
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <div className="min-h-screen ">
       {/* Header */}
-      <header className="border-b border-white/10 bg-white/5 backdrop-blur-md">
+      <header className="border-b bg-gradient-to-br from-[#2F519E] to-[#4F59B4] border-white/10  backdrop-blur-md">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -54,7 +49,7 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-white/80">
-                  Sistema Ryujin
+                  FaceClassroom
                 </h1>
                 <p className="text-sm text-white/80">
                   Controle de Presença Inteligente
@@ -84,33 +79,33 @@ const Index = () => {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 bg-gradient-hero">
         <Tabs defaultValue="scanner" className="space-y-6">
           <TabsList className="grid w-full grid-cols-4 border-black/20">
             <TabsTrigger
               value="scanner"
-              className="data-[state=active]:bg-white data-[state=active]:text-primary"
+              className="data-[state=active]:bg-white data-[state=active]:border data-[state=active]:border-violet-500/40 data-[state=active]:text-primary "
             >
               <Camera className="w-4 h-4 mr-2" />
               Scanner
             </TabsTrigger>
             <TabsTrigger
               value="dashboard"
-              className="data-[state=active]:bg-white data-[state=active]:text-primary"
+              className="data-[state=active]:bg-white data-[state=active]:border data-[state=active]:border-violet-500/40 data-[state=active]:text-primary"
             >
               <Monitor className="w-4 h-4 mr-2" />
               Dashboard
             </TabsTrigger>
             <TabsTrigger
               value="stats"
-              className="data-[state=active]:bg-white data-[state=active]:text-primary"
+              className="data-[state=active]:bg-white data-[state=active]:border data-[state=active]:border-violet-500/40 data-[state=active]:text-primary"
             >
               <BarChart3 className="w-4 h-4 mr-2" />
               Estatísticas
             </TabsTrigger>
             <TabsTrigger
               value="reports"
-              className="data-[state=active]:bg-white data-[state=active]:text-primary"
+              className="data-[state=active]:bg-white data-[state=active]:border data-[state=active]:border-violet-500/40 data-[state=active]:text-primary"
             >
               <Smartphone className="w-4 h-4 mr-2" />
               Relatórios

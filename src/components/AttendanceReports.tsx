@@ -166,7 +166,7 @@ export const AttendanceReports = () => {
       {/* Report Types */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {reportTypes.map((report) => (
-          <Card key={report.id} className="border-white/20 backdrop-blur-sm">
+          <Card key={report.id} className="border-white/20   backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2 text-black/80">
                 <report.icon className="w-5 h-5" />
@@ -230,7 +230,7 @@ export const AttendanceReports = () => {
         <CardContent>
           <div className="space-y-3">
             {recentReports.map((report) => (
-              <div key={report.id} className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-lg">
+              <div key={report.id} className="flex items-center justify-between p-4 bg-white/5 border border-black/20 rounded-lg">
                 <div className="flex items-center space-x-3">
                   <FileText className="w-5 h-5 text-black/80/70" />
                   <div>
@@ -298,7 +298,7 @@ export const AttendanceReports = () => {
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-white/5 border border-black/10 rounded-lg">
                 <div>
                   <p className="font-medium text-black/80">Relatório Semanal</p>
                   <p className="text-sm text-black/80/70">Toda segunda às 08:00</p>
@@ -308,7 +308,7 @@ export const AttendanceReports = () => {
                 </Badge>
               </div>
 
-              <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-white/5 border border-black/10 rounded-lg">
                 <div>
                   <p className="font-medium text-black/80">Relatório Mensal</p>
                   <p className="text-sm text-black/80/70">Todo dia 1º às 09:00</p>
@@ -320,7 +320,7 @@ export const AttendanceReports = () => {
             </div>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-white/5 border border-black/10 rounded-lg">
                 <div>
                   <p className="font-medium text-black/80">Alertas de Frequência</p>
                   <p className="text-sm text-black/80/70">Quando menor que 75%</p>
@@ -330,7 +330,7 @@ export const AttendanceReports = () => {
                 </Badge>
               </div>
 
-              <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-white/5 border border-black/10 rounded-lg">
                 <div>
                   <p className="font-medium text-black/80">Relatório Semestral</p>
                   <p className="text-sm text-black/80/70">A cada 6 meses</p>
