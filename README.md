@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
+## FaceClassroom
 
-## Project info
 
-**URL**: https://lovable.dev/projects/b75f537e-8898-49f2-a664-3df4d33ec5ed
+### Sobre
 
-## How can I edit this code?
+> Este projeto é um sistema de controle de presença inteligente para instituições de ensino, utilizando reconhecimento facial. A aplicação frontend, desenvolvida com **React**, **Vite** e **TypeScript**, oferece um dashboard em tempo real para acompanhamento, estatísticas de presença e geração de relatórios. A interface utiliza componentes **Shadcn UI** e **Tailwind CSS** para estilização.
+> Este projeto foi desenvolvido como MVP para aprensetação em uma Aula de Software Engineering and Business Model. Onde tivemos nota máxima de projeto e PITCH.
 
-There are several ways of editing your application.
 
-**Use Lovable**
+### Tecnologia usadas com suas versões
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b75f537e-8898-49f2-a664-3df4d33ec5ed) and start prompting.
+- Vite - 7.1.7
+- React - 18.3.1
+- TypeScript - 5.8.3
+- Shadcn UI (Radix UI) - various
+- Tailwind CSS - 3.4.17
+- React Router DOM - 6.30.1
+- TanStack Query - 5.83.0
+- Lucide React - 0.462.0
+- Eslint - 9.32.0
 
-Changes made via Lovable will be committed automatically to this repo.
+### Execução do projeto
 
-**Use your preferred IDE**
+**Requer o NODE (npm) e o GIT instalado!**
+~~~javascript
+ git clone https://github.com/wwilliamsantana/face-id-simulado.git
+ cd face-id-simulado
+ npm install
+ npm run dev
+~~~~
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Layout1349×0.8=
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+#### Scanner
+<img width="1079" height="940" alt="Screenshot 2025-10-23 at 21-44-11 FaceClassroom - Controle de Presença Inteligente" src="https://github.com/user-attachments/assets/f55774fa-8a6c-4cf7-a4b3-9fb0bd8b17ed" />
 
-Follow these steps:
+#### Dashboard
+<img width="1079" height="940"  alt="Screenshot 2025-10-23 at 21-44-21 FaceClassroom - Controle de Presença Inteligente" src="https://github.com/user-attachments/assets/fedc69f0-2503-48ac-b2d0-f93f357d4ee5" />
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+#### Estásticas 
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+<img width="1079" height="940" alt="Screenshot 2025-10-23 at 21-44-25 FaceClassroom - Controle de Presença Inteligente" src="https://github.com/user-attachments/assets/891ece7b-18fa-4809-ba74-5341b95e644c" />
 
-# Step 3: Install the necessary dependencies.
-npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+#### Relatório
 
-**Edit a file directly in GitHub**
+<img width="1079" height="940"  alt="Screenshot 2025-10-23 at 21-44-34 FaceClassroom - Controle de Presença Inteligente" src="https://github.com/user-attachments/assets/f251e5e9-209b-4968-8f98-8caab7cfb07e" />
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/b75f537e-8898-49f2-a664-3df4d33ec5ed) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
